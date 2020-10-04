@@ -34,6 +34,11 @@ class Conference
      */
     private $comments;
 
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $isInternacional;
+
     public function __construct()
     {
         $this->comments = new ArrayCollection();
@@ -95,6 +100,18 @@ class Conference
                 $comment->setConference(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getIsInternacional(): ?bool
+    {
+        return $this->isInternacional;
+    }
+
+    public function setIsInternacional(bool $isInternacional): self
+    {
+        $this->isInternacional = $isInternacional;
 
         return $this;
     }
